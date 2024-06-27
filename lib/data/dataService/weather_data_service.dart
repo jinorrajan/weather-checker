@@ -35,19 +35,25 @@ class FutureWeatherService {
     const apikey = "919985b44e7885f7050eb04965eb1991";
     const unit = 'metric';
 
+    
+
     try {
       final url = await  http.get(Uri.parse("${baseUrl}lat=$lat&lon=$lon&appid=$apikey&units=$unit"));
-      
-
+      final jsonResponse = await jsonDecode(url.body);
+         
       if (url.statusCode == 200) {
-        final jsonResponse = await jsonDecode(url.body);
+        
         return FutureWeatherApiModel.fromJson(jsonResponse as Map<String, dynamic>);
       } else {
         throw Exception("Failed to load weather data (Status code: ${url.statusCode})");
       }
+
+      
     } 
     catch (e) {
       throw Exception("Error: $e");
     }
+    
   }
+  
 }

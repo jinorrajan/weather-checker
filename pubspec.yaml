@@ -35,6 +35,8 @@ dependencies:
   get: 
   dio:
   http:
+  geolocator: ^11.1.0
+  fluttertoast:
   
   #local data base
   hive:

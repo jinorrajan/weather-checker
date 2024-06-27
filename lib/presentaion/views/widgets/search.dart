@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:weathe_checker/data/localdata/locationSharedpreference.dart';
 import 'package:weathe_checker/domain/models/location_model.dart';
 
@@ -74,9 +72,9 @@ class _SearchScreenState extends State<SearchScreen> {
                 onPressed: () {
                   Get.back();
                 },
-                icon: Icon(
+                icon:const Icon(
                   Icons.arrow_back_ios,
-                  color: const Color.fromARGB(221, 176, 176, 176),
+                  color:  Color.fromARGB(221, 176, 176, 176),
                 ),
               );
             }),
@@ -96,25 +94,25 @@ class _SearchScreenState extends State<SearchScreen> {
                       return null;
                     }
                   },
-                  style: TextStyle(
-                      color: const Color.fromARGB(221, 176, 176, 176)),
+                  style: const TextStyle(
+                      color:  Color.fromARGB(221, 176, 176, 176)),
                   decoration: InputDecoration(
                       hintText: "Enter Location",
-                      hintStyle: TextStyle(
-                        color: const Color.fromARGB(221, 176, 176, 176),
+                      hintStyle: const TextStyle(
+                        color:  Color.fromARGB(221, 176, 176, 176),
                         letterSpacing: 0.01,
                         height: 0.87,
                       ),
                       enabled: true,
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide(
-                              color: const Color.fromARGB(221, 176, 176, 176))),
+                          borderSide: const BorderSide(
+                              color:  Color.fromARGB(221, 176, 176, 176))),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                               color:
-                                  const Color.fromARGB(221, 176, 176, 176)))),
+                                   Color.fromARGB(221, 176, 176, 176)))),
                   onChanged: (value) {
                     setState(() {
                       address = value;
