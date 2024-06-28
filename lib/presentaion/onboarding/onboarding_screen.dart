@@ -48,8 +48,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           msg:
               'Location permissions are permanently denied, we cannot request permissions.');
     }
+    if(permission == LocationPermission.whileInUse){
+        Position position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.high);
+
+      final latt = position.latitude.toString();
+      final lonn = position.longitude.toString();
+
+
+      //Save  location 
+      LocationModel locationModel =
+          LocationModel(latitude: latt, longitude: lonn);
+      await LocationSharedPreference.saveLocationData(locationModel);
+    }
 
     try {
+      getdata();
       Get.off(const HomeScreen());
     } catch (e) {
       print("Error getting location: $e");
